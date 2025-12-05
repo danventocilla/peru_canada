@@ -1,0 +1,147 @@
+/* =========================================
+   ESTILO LITE - COLEGIO PERÚ-CANADÁ
+   Enfoque: Funcionalidad sobre Decoración
+   ========================================= */
+:root {
+    --color-primary: #002b5c; /* Azul Institucional */
+    --color-accent: #f7a41d;  /* Amarillo/Naranja */
+    --color-text: #333;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f6f9;
+}
+
+/* --- HEADER & NAV --- */
+.navbar-custom {
+    background-color: var(--color-primary);
+}
+.logo-img {
+    height: 50px;
+    border-radius: 5px;
+}
+
+/* --- CASCARÓN (HERO IMAGES) --- */
+.carousel-item img {
+    height: 400px;
+    object-fit: cover; /* Para que las fotos no se estiren feo */
+    object-position: center;
+}
+
+/* --- TARJETAS INFORMATIVAS --- */
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* --- LA YEMA (INTRANET & CHATBOT) --- */
+/* El Chatbot flotante (Crucial para la IA) */
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1050; /* Por encima de todo */
+}
+
+#chatbot-button {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    border: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+}
+
+#chatbot-button:hover { transform: scale(1.1); }
+
+#chatbot-window {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 350px;
+    height: 450px; /* Altura fija para el chat */
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+}
+
+#chatbot-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    background-color: #f8f9fa;
+}
+
+/* Estilos de mensajes */
+.chat-message { margin-bottom: 10px; padding: 10px; border-radius: 10px; font-size: 0.9rem; }
+.chat-message.bot { background-color: #e9ecef; color: #000; align-self: flex-start; }
+.chat-message.user { background-color: var(--color-primary); color: white; align-self: flex-end; text-align: right; }
+
+/* Feedback Visual en Tablas de Notas */
+.nota-aprobada { color: #198754; font-weight: bold; }
+.nota-desaprobada { color: #dc3545; font-weight: bold; }
+
+/* Botón especial dentro del chat */
+.btn-chat-action {
+    font-size: 0.85rem;
+    border-radius: 20px;
+    margin-top: 10px;
+    width: 100%;
+    border: 1px solid #0d6efd;
+    background: white;
+    color: #0d6efd;
+    transition: all 0.3s;
+}
+
+.btn-chat-action:hover {
+    background: #0d6efd;
+    color: white;
+}
+
+/* Asegura que las vistas ocultas no generen scroll */
+#public-view, #login-view, #intranet-view {
+    width: 100%;
+    /* Si no tiene la clase 'active' manejada por JS, esto ayuda, 
+       pero confiaremos principalmente en el JS 'display: none' */
+}
+
+/* Opcional: Ocultar la barra de scroll horizontal por si acaso */
+body {
+    overflow-x: hidden;
+}
+
+/* MEJORAS PARA GESTIÓN DE NOTAS */
+#docente-gestion-notas .card {
+    border-radius: 12px;
+    overflow: hidden; /* Para que la cabecera azul respete el borde */
+}
+
+#docente-gestion-notas .card-header {
+    background: linear-gradient(45deg, #0d6efd, #0a58ca); /* Azul degradado */
+    padding: 1rem 1.5rem;
+}
+
+#tabla-gestion-notas th {
+    background-color: #f8f9fa;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+#tabla-gestion-notas input.input-nota {
+    font-weight: bold;
+    color: #0d6efd;
+    border: 1px solid #dee2e6;
+    transition: all 0.3s;
+}
+
+#tabla-gestion-notas input.input-nota:focus {
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+    border-color: #0d6efd;
+    transform: scale(1.05);
+}
